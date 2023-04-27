@@ -1,0 +1,8 @@
+set_io X		64
+set_io Y		62
+set_io Z		63
+
+set_io optiona		59
+set_io optionb		57
+set_io optionc		56
+set_io optiond		55
