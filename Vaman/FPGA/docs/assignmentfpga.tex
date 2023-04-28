@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{multirow}
+\usepackage{blindtext}
+\usepackage{amsmath}
+\usepackage{capt-of}
+\usepackage{circuitikz}
+\usepackage{listings}
+\usepackage{./karnaugh-map}
+\usetikzlibrary{shapes.geometric}
+
+\lstset{
+	language=C++,
+	basicstyle=\ttfamily\footnotesize,
+	breaklines=true,
+	frame=lines
+}
+
+\title{Implementation of given Boolean Logics using Vaman FPGA}
+\date{April 2023}
+\author{Sai Harshith Kalithkar\\harshith.work@gmail.com\\FWC22118\\IIT Hyderabad-Future Wireless Communication Assignment-4.2}
+
+\begin{document}
+\maketitle
+	\tableofcontents
+\pagebreak
+\section{Problem}
+	(GATE EC-2022)\\
+	Q.6. Which one of the following is NOT a valid identity?
+\\
+
+\begin{enumerate}
+	\item \begin{equation} (x \oplus y) \oplus z = x \oplus (y \oplus z) \end{equation}
+	\item \begin{equation} (x + y) \oplus z = x \oplus (y + z) \end{equation}
+	\item \begin{equation} x \oplus y = x + y, if xy = 0  \end{equation}
+		\item \begin{equation} x \oplus y = \sim(xy + (\sim(x) \sim(y)) \end{equation} \\
+\end{enumerate}
+
+\section{Introduction}
+		The Aim is to implement the above four logics and find out the one which is not true or not valid.\\
+\section{Components}
+	\begin{enumerate}
+		\item Vaman Board
+		\item LEDs - 4
+		\item Breadboard
+		\item Jumper Wires (M-F) and (M-M) \\
+	\end{enumerate}
+
+\section{Hardware}
+	A total of 4 LEDs will be used in hardware each one representing one logic. The logics will keep running in loop. The X, Y and Z values will be given as inputs to the Vaman Board. Whenever the logic is true the led will glow. And whenever the logic is false the led turns off. \\
+	One out of the given 4 logic is false for some cmbination of X, Y, Z values. While the remaining 3 logics is true for all the combination of X, Y, Z values. This way we can find the odd one out. \\
+
+	The truth table for the circuit is given in below table \\
+	\begin{table}[h]
+		\begin{center}
+	\input{tables/truthTable.tex}
+		\caption{Truth Table}
+		\label{table:2}
+		\end{center}
+	\end{table}
+
+\section{Software}
+	The Arduino code for the given circuit using IC 7474 is \\
+	\lstinputlisting{helloworldfpga.v}
+	The pin connections for the above code is
+	\lstinputlisting{quickfeather.pcf}
+\end{document}
