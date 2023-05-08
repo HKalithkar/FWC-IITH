@@ -16,12 +16,13 @@ def line_gen(A,O):
         temp1 = A + lam_1[i]*(O-A)
         x_AO[:,i] = temp1.T
     return x_AO
-
-A = np.array([3,0])
-B = np.array([3,8])
-C = np.array([6,8])
+    
+a=3
+b=8
+A = np.array([a,0])
+B = np.array([a,b])
+C = np.array([2*a,b])
 D = np.array([0,0])
-O = np.array([3,4])
 
 x_AB = line_gen(A,B)
 x_BC = line_gen(B,C)
@@ -42,9 +43,9 @@ y = [7.8, 7.8, 8]
 plt.plot(x,y, color='black')
 
 
-sqr_vert = np.vstack((A,B,C,D,O)).T
+sqr_vert = np.vstack((A,B,C,D)).T
 plt.scatter(sqr_vert[0,:],sqr_vert[1,:])
-vert_labels = ['A','B','C','D','O']
+vert_labels = ['A','B','C','D']
 
 for i, txt in enumerate(vert_labels):
     plt.annotate(txt,
