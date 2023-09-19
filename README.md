@@ -1,4 +1,4 @@
-# fwc-1
+# FWC-1
 
 #1.  Install fdroid apk from
 
